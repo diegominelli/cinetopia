@@ -1,3 +1,4 @@
+import 'package:cinetopia_flutter/ui/components/movies_card.dart';
 import 'package:flutter/material.dart';
 
 class SearchMovies extends StatelessWidget {
@@ -7,7 +8,7 @@ class SearchMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("Search Movies"),
+        child: MovieCard(),
       ),
     );
   }
