@@ -1,4 +1,5 @@
 import 'package:cinetopia_flutter/ui/components/buttons.dart';
+import 'package:cinetopia_flutter/ui/screens/search_movies.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,7 +39,18 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const PrimaryButton(),
+              PrimaryButton(
+                text: "Quero começar!",
+                icon: Icons.arrow_forward,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchMovies(),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
