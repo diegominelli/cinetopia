@@ -6,6 +6,21 @@ class SearchMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: MovieCard());
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverToBoxAdapter(
+            child: Image.asset(
+          "assets/movie.png",
+          height: 80,
+          width: 80,
+        )),
+        const SliverToBoxAdapter(child: Text("Filmes populares")),
+        const SliverToBoxAdapter(child: TextField()),
+        SliverList.builder(
+          itemBuilder: (context, index) => const MovieCard(),
+          itemCount: 10,
+        ),
+      ],
+    );
   }
 }
