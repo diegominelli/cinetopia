@@ -25,6 +25,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF120326),
       body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 54, 16, 0),
           child: _screens.elementAt(
