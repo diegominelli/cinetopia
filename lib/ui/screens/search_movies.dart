@@ -1,4 +1,3 @@
-import 'package:cinetopia_flutter/app/services/search_movies_service.dart';
 import 'package:cinetopia_flutter/app/viewmodels/search_movies_viewmodel.dart';
 import 'package:cinetopia_flutter/ui/components/movies_card.dart';
 import 'package:flutter/material.dart';
