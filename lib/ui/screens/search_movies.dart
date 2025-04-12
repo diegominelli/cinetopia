@@ -1,5 +1,6 @@
 import 'package:cinetopia_flutter/app/viewmodels/search_movies_viewmodel.dart';
 import 'package:cinetopia_flutter/ui/components/movies_card.dart';
+import 'package:cinetopia_flutter/ui/screens/movie_details.dart';
 import 'package:flutter/material.dart';
 
 class SearchMovies extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SearchMoviesState extends State<SearchMovies> {
             slivers: <Widget>[
               SliverToBoxAdapter(
                   child: Image.asset(
-                "assets/movie.png",
+                "assets/popular.png",
                 height: 80,
                 width: 80,
               )),
@@ -55,13 +56,19 @@ class _SearchMoviesState extends State<SearchMovies> {
                 ),
               )),
               SliverList.builder(
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
-                  child: MovieCard(
-                    movie: viewmodel.moviesList[index],
-                  ),
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MovieDetails(
+                              movie: viewmodel.moviesList[index]))),
+                  child: Padding(
+                      padding: const EdgeInsets.only(bottom: 32),
+                      child: MovieCard(
+                        movie: viewmodel.moviesList[index],
+                      )),
                 ),
-                itemCount: 10,
+                itemCount: viewmodel.moviesList.length,
               ),
             ],
           );

@@ -59,3 +59,28 @@ class SearchForMovie implements SearchMoviesService {
     return movies;
   }
 }
+
+class SearchForUpcomingMovies implements SearchMoviesService {
+  List<Movie> movieList = <Movie>[];
+
+  @override
+  Future<List<Movie>> getMovies() async {
+    try {
+      final response = await http.get(
+        Uri.parse(upcomingUrl),
+        headers: resquestHeader,
+      );
+      if (response.statusCode == 200) {
+        for (dynamic movie in json.decode(response.body)['results']) {
+          movieList.add(Movie.fromMap(movie));
+        }
+      } else {
+        throw Exception(response.body);
+      }
+      return movieList;
+    } catch (e) {
+      print(e);
+    }
+    return movieList;
+  }
+}
